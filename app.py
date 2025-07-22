@@ -11,14 +11,16 @@ import logging
 from flask import Flask, render_template, request, jsonify, send_file
 from flask_socketio import SocketIO, emit
 
-@app.route('/')
-def home():
-    return render_template('index.html')
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return render_template('index.html')
+
 app.config['SECRET_KEY'] = 'your-secret-key-here-change-this'
 socketio = SocketIO(app, cors_allowed_origins="*")
 
