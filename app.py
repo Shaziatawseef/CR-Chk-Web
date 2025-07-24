@@ -17,8 +17,8 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 
-@app.route('/')
-def home():
+@app.route('/crun')
+def run_checker():
     return render_template('index.html')
 
 app.config['SECRET_KEY'] = 'your-secret-key-here-change-this'
