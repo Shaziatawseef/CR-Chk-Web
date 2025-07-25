@@ -21,7 +21,7 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-app.config['SECRET_KEY'] = 'b3271dd9a6f54648a66fd33e284cfeb1538c17ef2e1b479b90cde3c58cb80aa7'
+app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 
