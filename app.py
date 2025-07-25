@@ -890,7 +890,8 @@ if __name__ == '__main__':
                 except Exception as e:
                     logger.error(f"Error loading session {session_id_from_dir} on startup: {e}")
 
-    import os
+eventlet.monkey_patch()
 
-port = int(os.environ['PORT'])
-socketio.run(app, host='0.0.0.0', port=port, debug=True, allow_unsafe_werkzeug=True)
+if __name__ == '__main__':
+    port = int(os.environ['PORT'])
+    socketio.run(app, host='0.0.0.0', port=port)
