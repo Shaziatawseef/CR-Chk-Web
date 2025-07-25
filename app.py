@@ -891,4 +891,4 @@ if __name__ == '__main__':
                     logger.error(f"Error loading session {session_id_from_dir} on startup: {e}")
                     
 port = int(os.environ['PORT'])
-socketio.run(app, host='0.0.0.0', port=port)
+socketio.run(app, host='0.0.0.0', port=port, allow_unsafe_werkzeug=True)
